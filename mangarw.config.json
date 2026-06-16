@@ -1,0 +1,65 @@
+{
+  "site_key": "mangarw",
+  "base_url": "https://mangarw.com",
+  "list": {
+    "url": "https://mangarw.com/browse?sort=views_month&status=1&isAdult=true&genres=21",
+    "page_param": "page",
+    "pagination_selector": "a[href*='page=']",
+    "item_selector": "a[href^='/manga/'][title]",
+    "href": {
+      "selector": "@self",
+      "attr": "href",
+      "absolute_url": true
+    },
+    "title": {
+      "selector": "@self",
+      "attr": "title"
+    },
+    "image": {
+      "selector": "img",
+      "attr": ["data-src", "data-original", "data-lazy-src", "src"],
+      "absolute_url": true
+    }
+  },
+  "detail": {
+    "description": {
+      "selector": "meta[name='description']",
+      "attr": "content"
+    },
+    "chapters": {
+      "container_selector": "li[data-chapter-title]",
+      "link_selector": "a[href*='/read?id=']",
+      "href": {
+        "selector": "@self",
+        "attr": "href",
+        "absolute_url": true
+      },
+      "title_sources": [
+        {
+          "selector": "@self",
+          "attr": "data-chapter-title",
+          "target": "container"
+        },
+        {
+          "selector": "h4",
+          "text": true,
+          "target": "link"
+        },
+        {
+          "selector": "@self",
+          "text": true,
+          "target": "link"
+        }
+      ],
+      "published": {
+        "selector": "span",
+        "regex": "\\d{4}年\\d{1,2}月\\d{1,2}日"
+      },
+      "source_id_query_param": "id"
+    }
+  },
+  "reader": {
+    "image_selector": "#viewer img.page-img",
+    "image_attrs": ["data-src", "data-original", "data-lazy-src", "src"]
+  }
+}
