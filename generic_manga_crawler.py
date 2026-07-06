@@ -869,8 +869,10 @@ def crawl_library(conn, config, manga_id=None, max_chapters=None, crawl_images=F
             conn.commit()
 
             chapters.sort(
-                key=lambda item: float(item["chapter_number"]) if item["chapter_number"] else -1,
-                reverse=True,
+                key=lambda item: (
+                    item["chapter_number"] is None,
+                    float(item["chapter_number"]) if item["chapter_number"] is not None else 0,
+                ),
             )
             if max_chapters is not None:
                 chapters = chapters[:max_chapters]
