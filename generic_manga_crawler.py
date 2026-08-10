@@ -207,6 +207,16 @@ def create_tables(conn):
             ON manga_chapters (source_id)
             WHERE source_id IS NOT NULL;
 
+            CREATE UNIQUE INDEX IF NOT EXISTS manga_chapters_title_source_id_key
+            ON manga_chapters (manga_title_id, source_id)
+            WHERE source_id IS NOT NULL;
+
+            CREATE UNIQUE INDEX IF NOT EXISTS manga_chapters_title_href_path_key
+            ON manga_chapters (
+                manga_title_id,
+                regexp_replace(href, '^https?://[^/]+', '', 'i')
+            );
+
             ALTER TABLE manga_chapters
             DROP CONSTRAINT IF EXISTS manga_chapters_href_key;
 
@@ -487,6 +497,13 @@ def source_id_from_href(href, query_param=None, regex=None):
     return None
 
 
+def href_path_key(href):
+    parsed = urlparse(href)
+    if not parsed.scheme or not parsed.netloc:
+        return href
+    return urlunparse(("", "", parsed.path, "", parsed.query, "")).strip()
+
+
 def extract_description(soup, detail_config, base_url):
     spec = detail_config.get("description")
     if not spec:
@@ -562,6 +579,79 @@ def crawl_manga_detail(config, url):
 
 def upsert_chapter(conn, manga_title_id, chapter):
     with conn.cursor() as cur:
+        if chapter["source_id"] is not None:
+            cur.execute(
+                """
+                SELECT id
+                FROM manga_chapters
+                WHERE manga_title_id = %s
+                  AND source_id = %s
+                ORDER BY id ASC
+                LIMIT 1;
+                """,
+                (manga_title_id, chapter["source_id"]),
+            )
+            existing = cur.fetchone()
+            if existing:
+                chapter_id = existing[0]
+                cur.execute(
+                    """
+                    UPDATE manga_chapters
+                    SET name = %s,
+                        href = %s,
+                        chapter_number = %s,
+                        source_published_at = %s,
+                        updated_at = NOW()
+                    WHERE id = %s;
+                    """,
+                    (
+                        chapter["name"],
+                        chapter["href"],
+                        chapter["chapter_number"],
+                        chapter["source_published_at"],
+                        chapter_id,
+                    ),
+                )
+                conn.commit()
+                return chapter_id
+
+        cur.execute(
+            """
+            SELECT id
+            FROM manga_chapters
+            WHERE manga_title_id = %s
+              AND regexp_replace(href, '^https?://[^/]+', '', 'i') = %s
+            ORDER BY id ASC
+            LIMIT 1;
+            """,
+            (manga_title_id, href_path_key(chapter["href"])),
+        )
+        existing = cur.fetchone()
+        if existing:
+            chapter_id = existing[0]
+            cur.execute(
+                """
+                UPDATE manga_chapters
+                SET source_id = %s,
+                    name = %s,
+                    href = %s,
+                    chapter_number = %s,
+                    source_published_at = %s,
+                    updated_at = NOW()
+                WHERE id = %s;
+                """,
+                (
+                    chapter["source_id"],
+                    chapter["name"],
+                    chapter["href"],
+                    chapter["chapter_number"],
+                    chapter["source_published_at"],
+                    chapter_id,
+                ),
+            )
+            conn.commit()
+            return chapter_id
+
         cur.execute(
             """
             INSERT INTO manga_chapters (
