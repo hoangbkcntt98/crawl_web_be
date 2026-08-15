@@ -229525,3 +229525,270 @@ Manga details to crawl: 1
   [1/1] 第25話: saved 23 images
   Incremental title crawl completed: 1 crawled, 0 skipped
 Crawler finished
+Manga details to crawl: 1
+[1/1] キリングライン: 1 chapters
+  ERROR 第1話 (https://mangarw.com/read?id=236411): (1364, "Field 'id' doesn't have a default value")
+ERROR キリングライン (https://mangarw.com/manga/キリングライン/3029): 1 chapter(s) failed: 第1話
+Traceback (most recent call last):
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1251, in <module>
+    main()
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1201, in main
+    crawl_library(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1108, in crawl_library
+    raise RuntimeError(
+RuntimeError: 1 chapter(s) failed: 第1話
+Traceback (most recent call last):
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1251, in <module>
+    main()
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1196, in main
+    crawl_single_chapter(conn, config, args.chapter_id)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 943, in crawl_single_chapter
+    replace_chapter_images_for_config(conn, config, stored_id, href, images)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 892, in replace_chapter_images_for_config
+    cur.execute(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 124, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/pymysql/cursors.py", line 159, in execute
+    result = self._query(query)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/pymysql/cursors.py", line 330, in _query
+    conn.query(q)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/pymysql/connections.py", line 582, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/pymysql/connections.py", line 847, in _read_query_result
+    result.read()
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/pymysql/connections.py", line 1245, in read
+    first_packet = self.connection._read_packet()
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/pymysql/connections.py", line 803, in _read_packet
+    packet.raise_for_error()
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/pymysql/err.py", line 154, in raise_mysql_exception
+    raise errorclass(errno, errval, sqlstate=sqlstate)
+pymysql.err.OperationalError: (1364, "Field 'id' doesn't have a default value")
+Manga details to crawl: 1
+[1/1] キリングライン: 1 chapters
+  [1/1] 第1話: skipped
+  Incremental title crawl completed: 0 crawled, 1 skipped
+Crawler finished
+第1話: saved 30 images
+Crawler finished
+Manga details to crawl: 1
+[1/1] カエサル英雄記: 1 chapters
+  [1/1] 第1話: skipped
+  Incremental title crawl completed: 0 crawled, 1 skipped
+Crawler finished
+Manga details to crawl: 1
+[1/1] 幼女信長の異世界統一: 1 chapters
+  [1/1] 第1話: saved 20 images
+  Incremental title crawl completed: 1 crawled, 0 skipped
+Crawler finished
+Manga details to crawl: 1
+[1/1] NGƯỜI BỐ DƯỢNG CỦA TÔI: 97 chapters
+  [1/97] Chapter 1: saved 60 images
+  [2/97] Chapter 2: saved 51 images
+  [3/97] Chapter 3: saved 36 images
+  [4/97] Chapter 4: saved 40 images
+  [5/97] Chapter 5: saved 24 images
+  [6/97] Chapter 6: saved 21 images
+  [7/97] Chapter 7: saved 16 images
+  [8/97] Chapter 8: saved 17 images
+  [9/97] Chapter 9: saved 17 images
+  [10/97] Chapter 10: saved 18 images
+  [11/97] Chapter 11: saved 10 images
+  [12/97] Chapter 12: saved 10 images
+  [13/97] Chapter 13: saved 9 images
+  [14/97] Chapter 14: saved 8 images
+  [15/97] Chapter 15: saved 8 images
+  [16/97] Chapter 16: saved 23 images
+  [17/97] Chapter 17: saved 21 images
+  [18/97] Chapter 18: saved 5 images
+  [19/97] Chapter 19: saved 19 images
+  [20/97] Chapter 20: saved 17 images
+  [21/97] Chapter 21: saved 17 images
+  [22/97] Chapter 22: saved 21 images
+  [23/97] Chapter 23: saved 21 images
+  [24/97] Chapter 24: saved 3 images
+  [25/97] Chapter 25: saved 36 images
+  [26/97] Chapter 26: saved 3 images
+  [27/97] Chapter 27: saved 30 images
+  [28/97] Chapter 28: saved 2 images
+  [29/97] Chapter 29: saved 36 images
+  [30/97] Chapter 30: saved 32 images
+  [31/97] Chapter 31: saved 33 images
+  [32/97] Chapter 32: saved 41 images
+  [33/97] Chapter 33: saved 36 images
+  [34/97] Chapter 34: saved 36 images
+  [35/97] Chapter 35: saved 23 images
+  [36/97] Chapter 36: saved 24 images
+  [37/97] Chapter 37: saved 22 images
+  [38/97] Chapter 38: saved 6 images
+  [39/97] Chapter 39: saved 21 images
+  [40/97] Chapter 40: saved 22 images
+  [41/97] Chapter 41: saved 25 images
+  [42/97] Chapter 42: saved 7 images
+  [43/97] Chapter 43: saved 7 images
+  [44/97] Chapter 45: saved 7 images
+  [45/97] Chapter 46: saved 4 images
+  [46/97] Chapter 47: saved 4 images
+  [47/97] Chapter 48: saved 21 images
+  [48/97] Chapter 49: saved 5 images
+Manga details to crawl: 1
+  [49/97] Chapter 50: saved 5 images
+  [50/97] Chapter 51: saved 27 images
+  [51/97] Chapter 52: saved 27 images
+[1/1] Nữ Tù Nhân: 105 chapters
+  [52/97] Chapter 53: saved 28 images
+  [53/97] Chapter 54: saved 31 images
+  [1/105] Chapter 1: saved 255 images
+  [54/97] Chapter 55: saved 29 images
+  [2/105] Chapter 2: saved 211 images
+  [55/97] Chapter 56: saved 28 images
+  [56/97] Chapter 57: saved 28 images
+  [3/105] Chapter 3: saved 190 images
+  [57/97] Chapter 58: saved 27 images
+  [4/105] Chapter 4: saved 217 images
+  [58/97] Chapter 59: saved 28 images
+  [5/105] Chapter 5: saved 162 images
+  [59/97] Chapter 64: saved 5 images
+  [60/97] Chapter 65: saved 6 images
+  [6/105] Chapter 6: saved 210 images
+  [61/97] Chapter 66: saved 7 images
+  [7/105] Chapter 7: saved 126 images
+  [62/97] Chapter 68: saved 11 images
+  [8/105] Chapter 8: saved 120 images
+  [63/97] Chapter 69: saved 31 images
+  [9/105] Chapter 9: saved 149 images
+  [64/97] Chapter 70: saved 14 images
+  [10/105] Chapter 10: saved 10 images
+  [65/97] Chapter 71: saved 32 images
+  [11/105] Chapter 11: saved 11 images
+  [66/97] Chapter 72: saved 31 images
+  [67/97] Chapter 73: saved 28 images
+  [12/105] Chapter 12: saved 18 images
+  [68/97] Chapter 74: saved 15 images
+  [13/105] Chapter 13: saved 16 images
+  [69/97] Chapter 75: saved 31 images
+  [14/105] Chapter 14: saved 15 images
+  [70/97] Chapter 76: saved 22 images
+  [15/105] Chapter 15: saved 15 images
+  [71/97] Chapter 77: saved 29 images
+  [16/105] Chapter 16: saved 17 images
+  [72/97] Chapter 78: saved 27 images
+  [17/105] Chapter 17: saved 15 images
+  [73/97] Chapter 79: saved 29 images
+  [18/105] Chapter 18: saved 18 images
+  [74/97] Chapter 80: saved 34 images
+  [19/105] Chapter 19: saved 16 images
+  [75/97] Chapter 81: saved 32 images
+  [20/105] Chapter 20: saved 19 images
+  [76/97] Chapter 82: saved 28 images
+  [21/105] Chapter 21: saved 22 images
+  [77/97] Chapter 83: saved 29 images
+  [22/105] Chapter 22: saved 19 images
+  [23/105] Chapter 23: saved 8 images
+  [78/97] Chapter 84: saved 31 images
+  [24/105] Chapter 24: saved 11 images
+  [79/97] Chapter 85: saved 29 images
+  [25/105] Chapter 25: saved 12 images
+  [80/97] Chapter 86: saved 39 images
+  [26/105] Chapter 26: saved 7 images
+  [81/97] Chapter 87: saved 37 images
+  [27/105] Chapter 27: saved 6 images
+  [82/97] Chapter 88: saved 36 images
+  [28/105] Chapter 28: saved 6 images
+  [83/97] Chapter 89: saved 28 images
+  [29/105] Chapter 29: saved 10 images
+  [84/97] Chapter 90: saved 27 images
+  [30/105] Chapter 30: saved 5 images
+  [85/97] Chapter 91: saved 30 images
+  [31/105] Chapter 31: saved 10 images
+  [86/97] Chapter 92: saved 26 images
+  [32/105] Chapter 32: saved 9 images
+  [87/97] Chapter 93: saved 30 images
+  [33/105] Chapter 33: saved 6 images
+  [88/97] Chapter 94: saved 28 images
+  [34/105] Chapter 34: saved 13 images
+  [89/97] Chapter 95: saved 27 images
+  [35/105] Chapter 35: saved 10 images
+  [90/97] Chapter 96: saved 32 images
+  [36/105] Chapter 36: saved 11 images
+  [91/97] Chapter 97: saved 24 images
+  [37/105] Chapter 37: saved 12 images
+  [92/97] Chapter 98: saved 27 images
+  [38/105] Chapter 38: saved 13 images
+  [93/97] Chapter 99: saved 24 images
+  [39/105] Chapter 39: saved 12 images
+  [94/97] Chapter 100: saved 27 images
+  [40/105] Chapter 40: saved 10 images
+  [95/97] Chapter 101: saved 25 images
+  [41/105] Chapter 41: saved 10 images
+  [96/97] Chapter 102: saved 27 images
+  [42/105] Chapter 42: saved 9 images
+  [97/97] Chapter 103: saved 23 images
+  Incremental title crawl completed: 97 crawled, 0 skipped
+  [43/105] Chapter 43: saved 9 images
+Crawler finished
+  [44/105] Chapter 44: saved 10 images
+  [45/105] Chapter 45: saved 10 images
+  [46/105] Chapter 46: saved 5 images
+  [47/105] Chapter 47: saved 9 images
+  [48/105] Chapter 48: saved 11 images
+  [49/105] Chapter 49: saved 11 images
+  [50/105] Chapter 50: saved 4 images
+  [51/105] Chapter 51: saved 3 images
+  [52/105] Chapter 52: saved 6 images
+  [53/105] Chapter 53: saved 11 images
+  [54/105] Chapter 54: saved 10 images
+  [55/105] Chapter 55: saved 6 images
+  [56/105] Chapter 56: saved 6 images
+  [57/105] Chapter 57: saved 10 images
+  [58/105] Chapter 58: saved 6 images
+  [59/105] Chapter 59: saved 5 images
+  [60/105] Chapter 60: saved 5 images
+  [61/105] Chapter 61: saved 6 images
+  [62/105] Chapter 62: saved 9 images
+  [63/105] Chapter 63: saved 11 images
+  [64/105] Chapter 64: saved 9 images
+  [65/105] Chapter 65: saved 10 images
+  [66/105] Chapter 66: saved 9 images
+  [67/105] Chapter 67: saved 10 images
+  [68/105] Chapter 68: saved 10 images
+  [69/105] Chapter 69: saved 10 images
+  [70/105] Chapter 70: saved 9 images
+  [71/105] Chapter 71: saved 12 images
+  [72/105] Chapter 72: saved 11 images
+  [73/105] Chapter 73: saved 12 images
+  [74/105] Chapter 74: saved 12 images
+  [75/105] Chapter 75: saved 13 images
+  [76/105] Chapter 76: saved 12 images
+  [77/105] Chapter 77: saved 13 images
+  [78/105] Chapter 78: saved 12 images
+  [79/105] Chapter 79: saved 12 images
+  [80/105] Chapter 80: saved 10 images
+  [81/105] Chapter 81: saved 12 images
+  [82/105] Chapter 82: saved 13 images
+  [83/105] Chapter 83: saved 11 images
+  [84/105] Chapter 84: saved 11 images
+  [85/105] Chapter 85: saved 11 images
+  [86/105] Chapter 86: saved 14 images
+  [87/105] Chapter 87: saved 10 images
+  [88/105] Chapter 88: saved 10 images
+  [89/105] Chapter 89: saved 10 images
+  [90/105] Chapter 90: saved 10 images
+  [91/105] Chapter 91: saved 10 images
+  [92/105] Chapter 92: saved 11 images
+  [93/105] Chapter 93: saved 10 images
+  [94/105] Chapter 94: saved 11 images
+  [95/105] Chapter 95: saved 9 images
+  [96/105] Chapter 96: saved 11 images
+  [97/105] Chapter 97: saved 11 images
+  [98/105] Chapter 98: saved 13 images
+  [99/105] Chapter 99: saved 12 images
+  [100/105] Chapter 100: saved 11 images
+  [101/105] Chapter 101: saved 12 images
+  [102/105] Chapter 102: saved 13 images
+  [103/105] Chapter 103: saved 11 images
+  [104/105] Chapter 104: saved 16 images
+  [105/105] Chapter 105: saved 2 images
+  Incremental title crawl completed: 105 crawled, 0 skipped
+Crawler finished

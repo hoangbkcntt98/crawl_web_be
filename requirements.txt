@@ -1,0 +1,4 @@
+beautifulsoup4
+psycopg2-binary
+PyMySQL>=1.2.0
+requests

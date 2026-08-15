@@ -1,4 +1,11 @@
 Run
+## Database schema
+
+Apply the manga-web `db/` migrations during deployment before starting the web
+app or this crawler. Runtime crawling never creates tables, indexes, or columns.
+If a required table or column is missing, stop the crawl and migrate the database
+instead of modifying the schema from crawler code.
+
 ## Run with config stored in the database
 
 Register the JSON config in the `crawler_sites` table from the Next.js app,

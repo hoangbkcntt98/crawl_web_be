@@ -7,7 +7,12 @@ import time
 from pathlib import Path
 from urllib.parse import parse_qs, urlencode, urljoin, urlparse, urlunparse
 
-import psycopg2
+import pymysql
+
+try:
+    import psycopg2
+except ImportError:
+    psycopg2 = None
 import requests
 from bs4 import BeautifulSoup
 
@@ -15,7 +20,7 @@ from bs4 import BeautifulSoup
 #
 # Runtime flow:
 # 1. Load a site config either from --config JSON or crawler_sites by --site-key.
-# 2. Ensure DB tables/indexes exist.
+# 2. Require the database schema to have been migrated before startup.
 # 3. Optionally refresh title list from the configured browse pages.
 # 4. Crawl each title detail page to upsert chapter rows.
 # 5. If --crawl-images or --chapter-id is supplied, crawl reader images too.
@@ -24,6 +29,7 @@ from bs4 import BeautifulSoup
 # Next.js app can register multiple sites without adding Python code per site.
 
 REQUEST_DELAY = float(os.environ.get("CRAWLER_DELAY", "0.25"))
+DB_DIALECT = os.environ.get("DB_DIALECT", "postgres").lower()
 
 HEADERS = {
     "User-Agent": os.environ.get(
@@ -95,7 +101,67 @@ def load_config_from_db(conn, site_key):
     return validate_config(config)
 
 
+class MySqlCursor:
+    def __init__(self, cursor):
+        self.cursor = cursor
+        self.returning_id = False
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        self.cursor.close()
+
+    def execute(self, sql, params=None):
+        self.returning_id = bool(re.search(r"\bRETURNING\s+id\b", sql, re.I))
+        sql = re.sub(r"\bRETURNING\s+id\s*;?", "", sql, flags=re.I)
+        sql = re.sub(r"ON\s+CONFLICT\s*\([^)]*\)\s+DO\s+UPDATE\s+SET", "ON DUPLICATE KEY UPDATE", sql, flags=re.I)
+        sql = re.sub(r"ON\s+CONFLICT\s*\([^)]*\)\s+DO\s+NOTHING", "ON DUPLICATE KEY UPDATE id = id", sql, flags=re.I)
+        sql = re.sub(r"EXCLUDED\.([a-z_]+)", r"VALUES(\1)", sql, flags=re.I)
+        sql = sql.replace("regexp_replace(href, '^https?://[^/]+', '', 'i')", "REGEXP_REPLACE(href, '^https?://[^/]+', '')")
+        if self.returning_id and "ON DUPLICATE KEY UPDATE" in sql:
+            sql = sql.replace("ON DUPLICATE KEY UPDATE", "ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id),", 1)
+        return self.cursor.execute(sql, params)
+
+    def fetchone(self):
+        if self.returning_id:
+            return (self.cursor.lastrowid,)
+        return self.cursor.fetchone()
+
+    def fetchall(self):
+        return self.cursor.fetchall()
+
+
+class MySqlConnection:
+    def __init__(self, connection):
+        self.connection = connection
+
+    def cursor(self):
+        return MySqlCursor(self.connection.cursor())
+
+    def commit(self):
+        self.connection.commit()
+
+    def rollback(self):
+        self.connection.rollback()
+
+    def close(self):
+        self.connection.close()
+
+
 def get_conn():
+    if DB_DIALECT == "mysql":
+        return MySqlConnection(pymysql.connect(
+            host=os.environ["DB_HOST"],
+            port=int(os.environ.get("DB_PORT", "3306")),
+            database=os.environ["DB_NAME"],
+            user=os.environ["DB_USER"],
+            password=os.environ["DB_PASSWORD"],
+            charset="utf8mb4",
+            autocommit=False,
+        ))
+    if psycopg2 is None:
+        raise RuntimeError("PostgreSQL mode requires the psycopg2 package")
     return psycopg2.connect(
         host=os.environ["DB_HOST"],
         port=os.environ.get("DB_PORT", "5432"),
@@ -103,161 +169,6 @@ def get_conn():
         user=os.environ["DB_USER"],
         password=os.environ["DB_PASSWORD"],
     )
-
-
-def create_tables(conn):
-    """Create or migrate the crawler-owned schema before every run."""
-    with conn.cursor() as cur:
-        cur.execute(
-            "SELECT pg_advisory_xact_lock(hashtext('generic_manga_crawler.create_tables'))"
-        )
-        cur.execute(
-            """
-            CREATE TABLE IF NOT EXISTS manga_titles (
-                id BIGSERIAL PRIMARY KEY,
-                site_key TEXT NOT NULL DEFAULT 'default',
-                href TEXT NOT NULL,
-                title TEXT NOT NULL,
-                src TEXT,
-                source_url TEXT NOT NULL,
-                created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-                updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-            );
-
-            ALTER TABLE manga_titles
-            ADD COLUMN IF NOT EXISTS site_key TEXT NOT NULL DEFAULT 'default';
-
-            CREATE INDEX IF NOT EXISTS manga_titles_site_key_idx
-            ON manga_titles (site_key);
-
-            ALTER TABLE manga_titles
-            DROP CONSTRAINT IF EXISTS manga_titles_href_key;
-
-            CREATE UNIQUE INDEX IF NOT EXISTS manga_titles_site_href_key
-            ON manga_titles (site_key, href);
-
-            CREATE TABLE IF NOT EXISTS crawler_sites (
-                id BIGSERIAL PRIMARY KEY,
-                site_key TEXT NOT NULL UNIQUE,
-                config JSONB NOT NULL,
-                store_images_locally BOOLEAN NOT NULL DEFAULT FALSE,
-                local_image_storage_path TEXT,
-                crawl_status TEXT NOT NULL DEFAULT 'idle',
-                crawl_error TEXT,
-                crawler_pid INTEGER,
-                crawl_started_at TIMESTAMPTZ,
-                last_crawled_at TIMESTAMPTZ,
-                created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-                updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-                CHECK (jsonb_typeof(config) = 'object')
-            );
-
-            ALTER TABLE crawler_sites
-            ADD COLUMN IF NOT EXISTS crawler_pid INTEGER;
-
-            ALTER TABLE crawler_sites
-            ADD COLUMN IF NOT EXISTS crawl_started_at TIMESTAMPTZ;
-
-            ALTER TABLE crawler_sites
-            ADD COLUMN IF NOT EXISTS store_images_locally BOOLEAN NOT NULL DEFAULT FALSE;
-
-            ALTER TABLE crawler_sites
-            ADD COLUMN IF NOT EXISTS local_image_storage_path TEXT;
-
-            CREATE TABLE IF NOT EXISTS manga_details (
-                manga_title_id BIGINT PRIMARY KEY,
-                description TEXT,
-                crawled_at TIMESTAMPTZ,
-                images_crawled_at TIMESTAMPTZ,
-                crawl_status TEXT NOT NULL DEFAULT 'idle',
-                crawl_error TEXT,
-                created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-                updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-            );
-
-            ALTER TABLE manga_details
-            ADD COLUMN IF NOT EXISTS crawled_at TIMESTAMPTZ;
-
-            ALTER TABLE manga_details
-            ADD COLUMN IF NOT EXISTS images_crawled_at TIMESTAMPTZ;
-
-            ALTER TABLE manga_details
-            ADD COLUMN IF NOT EXISTS crawl_status TEXT NOT NULL DEFAULT 'idle';
-
-            ALTER TABLE manga_details
-            ADD COLUMN IF NOT EXISTS crawl_error TEXT;
-
-            CREATE TABLE IF NOT EXISTS manga_chapters (
-                id BIGSERIAL PRIMARY KEY,
-                manga_title_id BIGINT NOT NULL,
-                source_id BIGINT,
-                name TEXT NOT NULL,
-                href TEXT NOT NULL,
-                chapter_number NUMERIC,
-                source_published_at TEXT,
-                crawled_at TIMESTAMPTZ,
-                created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-                updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-            );
-
-            ALTER TABLE manga_chapters
-            ADD COLUMN IF NOT EXISTS crawled_at TIMESTAMPTZ;
-
-            CREATE INDEX IF NOT EXISTS manga_chapters_source_id_idx
-            ON manga_chapters (source_id)
-            WHERE source_id IS NOT NULL;
-
-            CREATE UNIQUE INDEX IF NOT EXISTS manga_chapters_title_source_id_key
-            ON manga_chapters (manga_title_id, source_id)
-            WHERE source_id IS NOT NULL;
-
-            CREATE UNIQUE INDEX IF NOT EXISTS manga_chapters_title_href_path_key
-            ON manga_chapters (
-                manga_title_id,
-                regexp_replace(href, '^https?://[^/]+', '', 'i')
-            );
-
-            ALTER TABLE manga_chapters
-            DROP CONSTRAINT IF EXISTS manga_chapters_href_key;
-
-            CREATE UNIQUE INDEX IF NOT EXISTS manga_chapters_title_href_key
-            ON manga_chapters (manga_title_id, href);
-
-            CREATE INDEX IF NOT EXISTS manga_chapters_title_number_idx
-            ON manga_chapters (
-                manga_title_id,
-                chapter_number DESC NULLS LAST,
-                id DESC
-            );
-
-            CREATE TABLE IF NOT EXISTS chapter_images (
-                id BIGSERIAL PRIMARY KEY,
-                chapter_id BIGINT NOT NULL REFERENCES manga_chapters(id) ON DELETE CASCADE,
-                position INTEGER NOT NULL CHECK (position >= 0),
-                src TEXT NOT NULL,
-                local_path TEXT,
-                content_type TEXT,
-                created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-                updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-                UNIQUE (chapter_id, position),
-                UNIQUE (chapter_id, src)
-            );
-
-            CREATE INDEX IF NOT EXISTS chapter_images_chapter_position_idx
-            ON chapter_images (chapter_id, position);
-
-            ALTER TABLE chapter_images
-            ADD COLUMN IF NOT EXISTS local_path TEXT;
-
-            ALTER TABLE chapter_images
-            ADD COLUMN IF NOT EXISTS content_type TEXT;
-
-            CREATE INDEX IF NOT EXISTS chapter_images_local_path_idx
-            ON chapter_images (local_path)
-            WHERE local_path IS NOT NULL;
-            """
-        )
-    conn.commit()
 
 
 def reset_tables(conn):
@@ -1096,7 +1007,6 @@ def main():
     args = parse_args()
     conn = get_conn()
     try:
-        create_tables(conn)
         config = (
             load_config(args.config)
             if args.config
