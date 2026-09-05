@@ -232814,3 +232814,439 @@ Traceback (most recent call last):
   File "/home/opc/manga-crawler/generic_manga_crawler.py", line 949, in crawl_library
     raise RuntimeError(
 RuntimeError: 931 chapter(s) failed: Chapter 1, Chapter 2, Chapter 3, Chapter 4, Chapter 5
+Traceback (most recent call last):
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1142, in <module>
+    main()
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1087, in main
+    crawl_single_chapter(conn, config, args.chapter_id)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 835, in crawl_single_chapter
+    replace_chapter_images_for_config(conn, config, stored_id, href, images)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 771, in replace_chapter_images_for_config
+    stored_images = download_chapter_images(config, chapter_id, chapter_url, images)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 727, in download_chapter_images
+    candidate_response = request_get(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 202, in request_get
+    response = requests.get(url, headers=request_headers, timeout=timeout)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib64/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/usr/lib64/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib64/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib64/python3.9/socket.py", line 716, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib64/python3.9/ssl.py", line 1277, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib64/python3.9/ssl.py", line 1135, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Manga details to crawl: 1
+Traceback (most recent call last):
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1142, in <module>
+    main()
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1087, in main
+    crawl_single_chapter(conn, config, args.chapter_id)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 835, in crawl_single_chapter
+    replace_chapter_images_for_config(conn, config, stored_id, href, images)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 771, in replace_chapter_images_for_config
+    stored_images = download_chapter_images(config, chapter_id, chapter_url, images)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 747, in download_chapter_images
+    raise last_error or RuntimeError(f"Could not download image: {source_url}")
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 727, in download_chapter_images
+    candidate_response = request_get(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 218, in request_get
+    raise last_error
+requests.exceptions.HTTPError: 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/3097381e4ef4c2da2fa0476c71249c62/chapter_1/page_1.jpg
+[1/1] Tiên Võ Đế Tôn: 908 chapters
+  ERROR Chapter 1 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-1): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_1/page_1.jpg
+  ERROR Chapter 2 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-2): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_2/page_1.jpg
+  ERROR Chapter 3 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-3): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_3/page_1.jpg
+  ERROR Chapter 4 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-4): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_4/page_1.jpg
+  ERROR Chapter 5 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-5): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_5/page_1.jpg
+  ERROR Chapter 6 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-6): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_6/page_1.jpg
+  ERROR Chapter 7 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-7): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_7/page_1.jpg
+  ERROR Chapter 8 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-8): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_8/page_1.jpg
+  ERROR Chapter 9 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-9): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_9/page_1.jpg
+  ERROR Chapter 10 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-10): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_10/page_1.jpg
+  ERROR Chapter 11 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-11): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_11/page_1.jpg
+  ERROR Chapter 12 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-12): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_12/page_1.jpg
+  ERROR Chapter 13 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-13): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_13/page_1.jpg
+  ERROR Chapter 14 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-14): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_14/page_1.jpg
+Traceback (most recent call last):
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1142, in <module>
+    main()
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1092, in main
+    crawl_library(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 980, in crawl_library
+    replace_chapter_images_for_config(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 771, in replace_chapter_images_for_config
+    stored_images = download_chapter_images(config, chapter_id, chapter_url, images)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 727, in download_chapter_images
+    candidate_response = request_get(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 202, in request_get
+    response = requests.get(url, headers=request_headers, timeout=timeout)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib64/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/usr/lib64/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib64/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib64/python3.9/socket.py", line 716, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib64/python3.9/ssl.py", line 1277, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib64/python3.9/ssl.py", line 1135, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Manga details to crawl: 1
+[1/1] Tiên Võ Đế Tôn: 908 chapters
+Manga details to crawl: 1
+[1/1] Tuyệt Thế Võ Thần: 1132 chapters
+Manga details to crawl: 1
+[1/1] Nhất Nhân Chi Hạ: 637 chapters
+  Chapter list saved; crawl images later with --chapter-id or --crawl-images
+Crawler finished
+  ERROR Chapter 1 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-1): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_1/page_1.jpg
+Manga details to crawl: 1
+[1/1] Nhất Nhân Chi Hạ: 637 chapters
+  ERROR Chapter 2 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-2): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_2/page_1.jpg
+  ERROR Chapter 1 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-1): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_1/page_1.jpg
+  ERROR Chapter 1 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-1): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_1/page_1.jpg
+  ERROR Chapter 3 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-3): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_3/page_1.jpg
+  ERROR Chapter 2 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-2): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_2/page_1.jpg
+  ERROR Chapter 4 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-4): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_4/page_1.jpg
+  ERROR Chapter 2 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-2): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_2/page_1.jpg
+  ERROR Chapter 5 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-5): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_5/page_1.jpg
+  ERROR Chapter 3 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-3): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_3/page_1.jpg
+  ERROR Chapter 3 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-3): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_3/page_1.jpg
+  ERROR Chapter 6 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-6): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_6/page_1.jpg
+  ERROR Chapter 4 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-4): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_4/page_1.jpg
+  ERROR Chapter 4 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-4): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_4/page_1.jpg
+  ERROR Chapter 7 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-7): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_7/page_1.jpg
+  ERROR Chapter 5 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-5): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_5/page_1.jpg
+  ERROR Chapter 5 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-5): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_5/page_1.jpg
+  ERROR Chapter 8 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-8): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_8/page_1.jpg
+  ERROR Chapter 6 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-6): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_6/page_1.jpg
+  ERROR Chapter 9 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-9): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_9/page_1.jpg
+  ERROR Chapter 6 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-6): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_6/page_1.jpg
+  ERROR Chapter 7 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-7): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_7/page_1.jpg
+  ERROR Chapter 10 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-10): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_10/page_1.jpg
+  ERROR Chapter 7 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-7): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_7/page_1.jpg
+  ERROR Chapter 8 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-8): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_8/page_1.jpg
+  ERROR Chapter 11 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-11): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_11/page_1.jpg
+  ERROR Chapter 9 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-9): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_9/page_1.jpg
+  ERROR Chapter 8 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-8): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_8/page_1.jpg
+  ERROR Chapter 12 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-12): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_12/page_1.jpg
+  ERROR Chapter 9 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-9): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_9/page_1.jpg
+  ERROR Chapter 13 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-13): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_13/page_1.jpg
+  ERROR Chapter 10 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-10): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_10/page_1.jpg
+  ERROR Chapter 10 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-10): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_10/page_1.jpg
+  ERROR Chapter 14 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-14): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_14/page_1.jpg
+  ERROR Chapter 11 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-11): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_11/page_1.jpg
+  ERROR Chapter 15 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-15): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_15/page_1.jpg
+  ERROR Chapter 11 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-11): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_11/page_1.jpg
+  ERROR Chapter 12 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-12): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_12/page_1.jpg
+  ERROR Chapter 16 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-16): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_16/page_1.jpg
+  ERROR Chapter 12 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-12): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_12/page_1.jpg
+  ERROR Chapter 13 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-13): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_13/page_1.jpg
+  ERROR Chapter 13 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-13): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_13/page_1.jpg
+  ERROR Chapter 17 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-17): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_17/page_1.jpg
+  ERROR Chapter 14 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-14): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_14/page_1.jpg
+  ERROR Chapter 14 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-14): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_14/page_1.jpg
+  ERROR Chapter 18 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-18): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_18/page_1.jpg
+  ERROR Chapter 15 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-15): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_15/page_1.jpg
+  ERROR Chapter 15 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-15): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_15/page_1.jpg
+  ERROR Chapter 16 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-16): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_16/page_1.jpg
+  ERROR Chapter 19 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-19): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_19/page_1.jpg
+  ERROR Chapter 17 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-17): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_17/page_1.jpg
+  ERROR Chapter 16 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-16): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_16/page_1.jpg
+  ERROR Chapter 20 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-20): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_20/page_1.jpg
+  ERROR Chapter 18 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-18): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_18/page_1.jpg
+  ERROR Chapter 17 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-17): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_17/page_1.jpg
+  ERROR Chapter 21 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-21): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_21/page_1.jpg
+  ERROR Chapter 19 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-19): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_19/page_1.jpg
+  ERROR Chapter 20 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-20): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_20/page_1.jpg
+  ERROR Chapter 22 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-22): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_22/page_1.jpg
+  ERROR Chapter 18 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-18): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_18/page_1.jpg
+  ERROR Chapter 23 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-23): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_23/page_1.jpg
+  ERROR Chapter 21 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-21): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_21/page_1.jpg
+  ERROR Chapter 19 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-19): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_19/page_1.jpg
+  ERROR Chapter 24 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-24): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_24/page_1.jpg
+  ERROR Chapter 20 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-20): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_20/page_1.jpg
+  ERROR Chapter 22 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-22): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_22/page_1.jpg
+  ERROR Chapter 25 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-25): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_25/page_1.jpg
+  ERROR Chapter 21 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-21): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_21/page_1.jpg
+  ERROR Chapter 23 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-23): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_23/page_1.jpg
+  ERROR Chapter 22 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-22): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_22/page_1.jpg
+  ERROR Chapter 24 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-24): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_24/page_1.jpg
+  ERROR Chapter 26 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-26): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_26/page_1.jpg
+  ERROR Chapter 23 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-23): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_23/page_1.jpg
+  ERROR Chapter 27 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-27): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_27/page_1.jpg
+  ERROR Chapter 25 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-25): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_25/page_1.jpg
+  ERROR Chapter 24 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-24): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_24/page_1.jpg
+  ERROR Chapter 26 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-26): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_26/page_1.jpg
+  ERROR Chapter 28 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-28): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_28/page_1.jpg
+  ERROR Chapter 25 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-25): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_25/page_1.jpg
+  ERROR Chapter 27 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-27): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_27/page_1.jpg
+  ERROR Chapter 29 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-29): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_29/page_1.jpg
+  ERROR Chapter 26 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-26): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_26/page_1.jpg
+  ERROR Chapter 28 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-28): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_28/page_1.jpg
+  ERROR Chapter 30 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-30): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_30/page_1.jpg
+  ERROR Chapter 27 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-27): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_27/page_1.jpg
+  ERROR Chapter 31 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-31): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_31/page_1.jpg
+  ERROR Chapter 29 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-29): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_29/page_1.jpg
+  ERROR Chapter 32 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-32): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_32/page_1.jpg
+  ERROR Chapter 28 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-28): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_28/page_1.jpg
+  ERROR Chapter 30 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-30): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_30/page_1.jpg
+  ERROR Chapter 29 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-29): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_29/page_1.jpg
+  ERROR Chapter 33 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-33): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_33/page_1.jpg
+  ERROR Chapter 31 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-31): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_31/page_1.jpg
+  ERROR Chapter 30 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-30): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_30/page_1.jpg
+  ERROR Chapter 34 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-34): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_34/page_1.jpg
+  ERROR Chapter 32 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-32): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_32/page_1.jpg
+  ERROR Chapter 31 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-31): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_31/page_1.jpg
+  ERROR Chapter 33 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-33): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_33/page_1.jpg
+  ERROR Chapter 35 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-35): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_35/page_1.jpg
+  ERROR Chapter 36 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-36): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_36/page_1.jpg
+  ERROR Chapter 32 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-32): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_32/page_1.jpg
+  ERROR Chapter 34 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-34): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_34/page_1.jpg
+  ERROR Chapter 33 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-33): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_33/page_1.jpg
+  ERROR Chapter 37 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-37): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_37/page_1.jpg
+  ERROR Chapter 35 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-35): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_35/page_1.jpg
+  ERROR Chapter 38 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-38): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_38/page_1.jpg
+  ERROR Chapter 36 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-36): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_36/page_1.jpg
+  ERROR Chapter 34 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-34): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_34/page_1.jpg
+  ERROR Chapter 35 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-35): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_35/page_1.jpg
+  ERROR Chapter 39 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-39): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_39/page_1.jpg
+  ERROR Chapter 37 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-37): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_37/page_1.jpg
+  ERROR Chapter 40 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-40): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_40/page_1.jpg
+  ERROR Chapter 36 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-36): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_36/page_1.jpg
+  ERROR Chapter 38 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-38): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_38/page_1.jpg
+  ERROR Chapter 41 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-41): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_41/page_1.jpg
+  ERROR Chapter 37 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-37): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_37/page_1.jpg
+  ERROR Chapter 39 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-39): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_39/page_1.jpg
+  ERROR Chapter 38 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-38): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_38/page_1.jpg
+  ERROR Chapter 42 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-42): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_42/page_1.jpg
+  ERROR Chapter 43 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-43): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_43/page_1.jpg
+  ERROR Chapter 40 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-40): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_40/page_1.jpg
+  ERROR Chapter 39 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-39): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_39/page_1.jpg
+  ERROR Chapter 44 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-44): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_44/page_1.jpg
+  ERROR Chapter 41 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-41): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_41/page_1.jpg
+  ERROR Chapter 40 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-40): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_40/page_1.jpg
+  ERROR Chapter 45 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-45): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_45/page_1.jpg
+  ERROR Chapter 42 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-42): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_42/page_1.jpg
+  ERROR Chapter 41 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-41): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_41/page_1.jpg
+  ERROR Chapter 46 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-46): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_46/page_1.jpg
+  ERROR Chapter 43 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-43): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_43/page_1.jpg
+  ERROR Chapter 42 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-42): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_42/page_1.jpg
+  ERROR Chapter 47 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-47): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_47/page_1.jpg
+  ERROR Chapter 44 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-44): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_44/page_1.jpg
+  ERROR Chapter 43 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-43): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_43/page_1.jpg
+  ERROR Chapter 48 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-48): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_48/page_1.jpg
+  ERROR Chapter 45 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-45): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_45/page_1.jpg
+  ERROR Chapter 44 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-44): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_44/page_1.jpg
+  ERROR Chapter 49 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-49): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_49/page_1.jpg
+  ERROR Chapter 46 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-46): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_46/page_1.jpg
+  ERROR Chapter 45 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-45): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_45/page_1.jpg
+  ERROR Chapter 50 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-50): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_50/page_1.jpg
+  ERROR Chapter 46 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-46): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_46/page_1.jpg
+  ERROR Chapter 47 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-47): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_47/page_1.jpg
+  ERROR Chapter 48 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-48): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_48/page_1.jpg
+  ERROR Chapter 47 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-47): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_47/page_1.jpg
+  ERROR Chapter 51 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-51): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_51/page_1.jpg
+  ERROR Chapter 52 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-52): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_52/page_1.jpg
+  ERROR Chapter 49 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-49): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_49/page_1.jpg
+  ERROR Chapter 48 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-48): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_48/page_1.jpg
+  ERROR Chapter 53 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-53): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_53/page_1.jpg
+  ERROR Chapter 50 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-50): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_50/page_1.jpg
+  ERROR Chapter 49 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-49): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_49/page_1.jpg
+  ERROR Chapter 54 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-54): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_54/page_1.jpg
+  ERROR Chapter 51 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-51): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_51/page_1.jpg
+  ERROR Chapter 50 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-50): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_50/page_1.jpg
+  ERROR Chapter 55 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-55): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_55/page_1.jpg
+  ERROR Chapter 52 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-52): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_52/page_1.jpg
+  ERROR Chapter 56 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-56): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_56/page_1.jpg
+  ERROR Chapter 51 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-51): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_51/page_1.jpg
+  ERROR Chapter 53 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-53): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_53/page_1.jpg
+  ERROR Chapter 57 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-57): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_57/page_1.jpg
+  ERROR Chapter 52 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-52): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_52/page_1.jpg
+  ERROR Chapter 54 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-54): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_54/page_1.jpg
+  ERROR Chapter 58 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-58): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_58/page_1.jpg
+  ERROR Chapter 55 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-55): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_55/page_1.jpg
+  ERROR Chapter 53 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-53): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_53/page_1.jpg
+  ERROR Chapter 59 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-59): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_59/page_1.jpg
+  ERROR Chapter 56 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-56): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_56/page_1.jpg
+  ERROR Chapter 54 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-54): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_54/page_1.jpg
+  ERROR Chapter 57 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-57): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_57/page_1.jpg
+  ERROR Chapter 60 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-60): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_60/page_1.jpg
+  ERROR Chapter 55 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-55): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_55/page_1.jpg
+  ERROR Chapter 58 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-58): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_58/page_1.jpg
+  ERROR Chapter 61 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-61): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_61/page_1.jpg
+  ERROR Chapter 56 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-56): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_56/page_1.jpg
+  ERROR Chapter 59 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-59): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_59/page_1.jpg
+  ERROR Chapter 57 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-57): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_57/page_1.jpg
+  ERROR Chapter 62 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-62): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_62/page_1.jpg
+  ERROR Chapter 60 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-60): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_60/page_1.jpg
+  ERROR Chapter 63 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-63): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_63/page_1.jpg
+  ERROR Chapter 61 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-61): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_61/page_1.jpg
+  ERROR Chapter 64 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-64): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_64/page_1.jpg
+  ERROR Chapter 58 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-58): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_58/page_1.jpg
+  ERROR Chapter 65 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-65): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_65/page_1.jpg
+  ERROR Chapter 59 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-59): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_59/page_1.jpg
+  ERROR Chapter 62 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-62): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_62/page_1.jpg
+  ERROR Chapter 63 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-63): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_63/page_1.jpg
+  ERROR Chapter 66 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-66): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_66/page_1.jpg
+  ERROR Chapter 60 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-60): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_60/page_1.jpg
+  ERROR Chapter 64 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-64): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_64/page_1.jpg
+  ERROR Chapter 61 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-61): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_61/page_1.jpg
+  ERROR Chapter 65 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-65): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_65/page_1.jpg
+  ERROR Chapter 67 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-67): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_67/page_1.jpg
+  ERROR Chapter 62 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-62): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_62/page_1.jpg
+  ERROR Chapter 66 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-66): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_66/page_1.jpg
+  ERROR Chapter 68 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-68): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_68/page_1.jpg
+  ERROR Chapter 63 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-63): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_63/page_1.jpg
+  ERROR Chapter 67 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-67): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_67/page_1.jpg
+  ERROR Chapter 64 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-64): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_64/page_1.jpg
+  ERROR Chapter 69 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-69): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_69/page_1.jpg
+  ERROR Chapter 68 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-68): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_68/page_1.jpg
+  ERROR Chapter 70 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-70): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_70/page_1.jpg
+  ERROR Chapter 65 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-65): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_65/page_1.jpg
+  ERROR Chapter 69 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-69): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_69/page_1.jpg
+  ERROR Chapter 71 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-71): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_71/page_1.jpg
+  ERROR Chapter 66 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-66): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_66/page_1.jpg
+  ERROR Chapter 72 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-72): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_72/page_1.jpg
+  ERROR Chapter 70 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-70): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_70/page_1.jpg
+  ERROR Chapter 67 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-67): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_67/page_1.jpg
+  ERROR Chapter 73 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-73): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_73/page_1.jpg
+  ERROR Chapter 71 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-71): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_71/page_1.jpg
+  ERROR Chapter 68 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-68): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_68/page_1.jpg
+  ERROR Chapter 74 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-74): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_74/page_1.jpg
+  ERROR Chapter 72 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-72): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_72/page_1.jpg
+  ERROR Chapter 69 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-69): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_69/page_1.jpg
+  ERROR Chapter 73 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-73): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_73/page_1.jpg
+  ERROR Chapter 75 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-75): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_75/page_1.jpg
+  ERROR Chapter 70 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-70): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_70/page_1.jpg
+  ERROR Chapter 74 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-74): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_74/page_1.jpg
+  ERROR Chapter 76 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-76): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_76/page_1.jpg
+  ERROR Chapter 71 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-71): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_71/page_1.jpg
+  ERROR Chapter 75 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-75): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_75/page_1.jpg
+  ERROR Chapter 77 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-77): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_77/page_1.jpg
+  ERROR Chapter 72 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-72): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_72/page_1.jpg
+  ERROR Chapter 76 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-76): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_76/page_1.jpg
+  ERROR Chapter 78 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-78): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_78/page_1.jpg
+  ERROR Chapter 73 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-73): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_73/page_1.jpg
+  ERROR Chapter 77 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-77): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_77/page_1.jpg
+  ERROR Chapter 74 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-74): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_74/page_1.jpg
+  ERROR Chapter 79 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-79): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_79/page_1.jpg
+  ERROR Chapter 78 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-78): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_78/page_1.jpg
+  ERROR Chapter 75 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-75): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_75/page_1.jpg
+  ERROR Chapter 80 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-80): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_80/page_1.jpg
+  ERROR Chapter 79 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-79): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_79/page_1.jpg
+  ERROR Chapter 76 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-76): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_76/page_1.jpg
+  ERROR Chapter 81 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-81): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_81/page_1.jpg
+  ERROR Chapter 80 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-80): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_80/page_1.jpg
+  ERROR Chapter 77 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-77): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_77/page_1.jpg
+  ERROR Chapter 82 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-82): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_82/page_1.jpg
+  ERROR Chapter 81 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-81): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_81/page_1.jpg
+  ERROR Chapter 78 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-78): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_78/page_1.jpg
+  ERROR Chapter 83 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-83): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_83/page_1.jpg
+  ERROR Chapter 82 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-82): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_82/page_1.jpg
+  ERROR Chapter 79 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-79): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_79/page_1.jpg
+  ERROR Chapter 84 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-84): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_84/page_1.jpg
+  ERROR Chapter 83 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-83): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_83/page_1.jpg
+  ERROR Chapter 80 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-80): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_80/page_1.jpg
+  ERROR Chapter 85 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-85): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_85/page_1.jpg
+  ERROR Chapter 84 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-84): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_84/page_1.jpg
+  ERROR Chapter 81 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-81): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_81/page_1.jpg
+  ERROR Chapter 86 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-86): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_86/page_1.jpg
+  ERROR Chapter 82 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-82): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_82/page_1.jpg
+  ERROR Chapter 85 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-85): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_85/page_1.jpg
+  ERROR Chapter 83 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-83): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_83/page_1.jpg
+  ERROR Chapter 87 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-87): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_87/page_1.jpg
+  ERROR Chapter 86 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-86): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_86/page_1.jpg
+  ERROR Chapter 84 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-84): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_84/page_1.jpg
+  ERROR Chapter 88 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-88): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_88/page_1.jpg
+  ERROR Chapter 85 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-85): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_85/page_1.jpg
+  ERROR Chapter 89 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-89): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_89/page_1.jpg
+  ERROR Chapter 87 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-87): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_87/page_1.jpg
+  ERROR Chapter 90 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-90): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_90/page_1.jpg
+  ERROR Chapter 86 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-86): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_86/page_1.jpg
+  ERROR Chapter 88 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-88): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_88/page_1.jpg
+  ERROR Chapter 91 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-91): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_91/page_1.jpg
+  ERROR Chapter 89 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-89): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_89/page_1.jpg
+  ERROR Chapter 87 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-87): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_87/page_1.jpg
+  ERROR Chapter 90 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-90): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_90/page_1.jpg
+  ERROR Chapter 92 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-92): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_92/page_1.jpg
+  ERROR Chapter 91 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-91): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_91/page_1.jpg
+  ERROR Chapter 88 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-88): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_88/page_1.jpg
+  ERROR Chapter 93 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-93): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_93/page_1.jpg
+  ERROR Chapter 92 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-92): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_92/page_1.jpg
+  ERROR Chapter 89 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-89): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_89/page_1.jpg
+  ERROR Chapter 94 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-94): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_94/page_1.jpg
+  ERROR Chapter 93 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-93): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_93/page_1.jpg
+  ERROR Chapter 94 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-94): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_94/page_1.jpg
+  ERROR Chapter 90 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-90): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_90/page_1.jpg
+  ERROR Chapter 95 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-95): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_95/page_1.jpg
+  ERROR Chapter 95 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-95): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_95/page_1.jpg
+  ERROR Chapter 91 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-91): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_91/page_1.jpg
+  ERROR Chapter 96 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-96): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+  ERROR Chapter 96 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-96): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+  ERROR Chapter 92 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-92): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_92/page_1.jpg
+  ERROR Chapter 97 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-97): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_97/page_1.jpg
+  ERROR Chapter 98 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-98): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_98/page_1.jpg
+  ERROR Chapter 97 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-97): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_97/page_1.jpg
+  ERROR Chapter 93 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-93): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_93/page_1.jpg
+  ERROR Chapter 94 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-94): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_94/page_1.jpg
+  ERROR Chapter 99 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-99): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_99/page_1.jpg
+  ERROR Chapter 95 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-95): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_95/page_1.jpg
+  ERROR Chapter 98 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-98): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_98/page_1.jpg
+  ERROR Chapter 100 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-100): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_100/page_1.jpg
+  ERROR Chapter 96 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-96): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_96/page_1.jpg
+  ERROR Chapter 101 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-101): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_101/page_1.jpg
+  ERROR Chapter 99 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-99): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_99/page_1.jpg
+  ERROR Chapter 97 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-97): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_97/page_1.jpg
+  ERROR Chapter 100 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-100): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_100/page_1.jpg
+  ERROR Chapter 102 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-102): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_102/page_1.jpg
+  ERROR Chapter 98 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-98): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_98/page_1.jpg
+  ERROR Chapter 101 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-101): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_101/page_1.jpg
+  ERROR Chapter 99 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-99): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_99/page_1.jpg
+  ERROR Chapter 103 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-103): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_103/page_1.jpg
+  ERROR Chapter 102 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-102): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_102/page_1.jpg
+  ERROR Chapter 100 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-100): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_100/page_1.jpg
+  ERROR Chapter 104 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-104): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_104/page_1.jpg
+  ERROR Chapter 103 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-103): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_103/page_1.jpg
+  ERROR Chapter 101 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-101): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_101/page_1.jpg
+  ERROR Chapter 105 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-105): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_105/page_1.jpg
+  ERROR Chapter 104 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-104): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_104/page_1.jpg

@@ -29,6 +29,7 @@ from bs4 import BeautifulSoup
 # Next.js app can register multiple sites without adding Python code per site.
 
 REQUEST_DELAY = float(os.environ.get("CRAWLER_DELAY", "0.25"))
+REQUEST_RETRIES = max(1, int(os.environ.get("CRAWLER_REQUEST_RETRIES", "3")))
 DB_DIALECT = os.environ.get("DB_DIALECT", "postgres").lower()
 
 HEADERS = {
@@ -192,9 +193,34 @@ def reset_tables(conn):
     print("Reset completed: all crawler tables were truncated", flush=True)
 
 
+def request_get(url, *, headers=None, timeout=30, retries=REQUEST_RETRIES):
+    """GET a page/resource with bounded retries for transient upstream errors."""
+    request_headers = headers or HEADERS
+    last_error = None
+    for attempt in range(retries):
+        try:
+            response = requests.get(url, headers=request_headers, timeout=timeout)
+            if response.status_code not in {502, 503, 504, 522, 524}:
+                response.raise_for_status()
+                return response
+            last_error = requests.HTTPError(
+                f"{response.status_code} upstream error for url: {url}",
+                response=response,
+            )
+            response.close()
+        except requests.RequestException as error:
+            last_error = error
+
+        if attempt + 1 < retries:
+            time.sleep(min(2 ** attempt, 8))
+
+    if last_error:
+        raise last_error
+    raise RuntimeError(f"Could not GET {url}")
+
+
 def get_soup(url):
-    response = requests.get(url, headers=HEADERS, timeout=30)
-    response.raise_for_status()
+    response = request_get(url, timeout=30)
     return BeautifulSoup(response.text, "html.parser")
 
 
@@ -684,18 +710,43 @@ def download_chapter_images(config, chapter_id, chapter_url, images):
     downloaded = []
 
     for position, source_url in enumerate(images):
-        response = requests.get(
-            source_url,
-            headers={**HEADERS, "Referer": chapter_url},
-            timeout=60,
-        )
-        response.raise_for_status()
-        content_type = response.headers.get("content-type", "")
-        if not content_type.lower().startswith("image/"):
-            raise ValueError(
-                f"Expected image but received {content_type!r}: {source_url}"
-            )
+        candidates = [source_url]
+        replacements = config.get("reader", {}).get("image_url_replacements", [])
+        for replacement in replacements:
+            if not isinstance(replacement, dict):
+                continue
+            source = replacement.get("source")
+            target = replacement.get("target")
+            if source and target and source_url.replace(source, target) != source_url:
+                candidates.append(source_url.replace(source, target))
 
+        response = None
+        last_error = None
+        for candidate in candidates:
+            try:
+                candidate_response = request_get(
+                    candidate,
+                    headers={**HEADERS, "Referer": chapter_url},
+                    timeout=60,
+                )
+                candidate_content_type = candidate_response.headers.get(
+                    "content-type", ""
+                )
+                if not candidate_content_type.lower().startswith("image/"):
+                    last_error = ValueError(
+                        f"Expected image but received {candidate_content_type!r}: {candidate}"
+                    )
+                    continue
+                response = candidate_response
+                source_url = candidate
+                break
+            except (requests.RequestException, ValueError) as error:
+                last_error = error
+
+        if response is None:
+            raise last_error or RuntimeError(f"Could not download image: {source_url}")
+
+        content_type = response.headers.get("content-type", "")
         extension, media_type = image_extension(content_type, source_url)
         local_path = chapter_dir / f"{position:05d}{extension}"
         with tempfile.NamedTemporaryFile(
