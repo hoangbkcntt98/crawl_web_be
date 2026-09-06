@@ -233250,3 +233250,146 @@ Manga details to crawl: 1
   ERROR Chapter 101 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-101): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_101/page_1.jpg
   ERROR Chapter 105 (https://nettruyen.ad/truyen-tranh/tien-vo-de-ton/chuong-105): 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20231231/6c10292b47efbd4d546dcb622d919962/chapter_105/page_1.jpg
   ERROR Chapter 104 (https://nettruyen.ad/truyen-tranh/tuyet-the-vo-than/chuong-104): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/1422c1480b0fc128f7a5e825ffc02acb/chapter_104/page_1.jpg
+  ERROR Chapter 102 (https://nettruyen.ad/truyen-tranh/nhat-nhan-chi-ha/chuong-102): 504 upstream error for url: https://sv1.otruyencdn.com/uploads/20231220/8c84d754b8931a11340cdea7bf9474e0/chapter_102/page_1.jpg
+Traceback (most recent call last):
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1142, in <module>
+    main()
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1092, in main
+    crawl_library(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 980, in crawl_library
+Traceback (most recent call last):
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1142, in <module>
+    replace_chapter_images_for_config(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 771, in replace_chapter_images_for_config
+    stored_images = download_chapter_images(config, chapter_id, chapter_url, images)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 727, in download_chapter_images
+    main()
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1092, in main
+    candidate_response = request_get(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 202, in request_get
+    response = requests.get(url, headers=request_headers, timeout=timeout)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/sessions.py", line 589, in request
+    crawl_library(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 980, in crawl_library
+    resp = self.send(prep, **send_kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/sessions.py", line 703, in send
+    replace_chapter_images_for_config(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 771, in replace_chapter_images_for_config
+    r = adapter.send(request, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/adapters.py", line 644, in send
+    stored_images = download_chapter_images(config, chapter_id, chapter_url, images)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 727, in download_chapter_images
+    resp = conn.urlopen(
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    candidate_response = request_get(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 202, in request_get
+    response = requests.get(url, headers=request_headers, timeout=timeout)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+    response = self._make_request(
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/api.py", line 59, in request
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/sessions.py", line 589, in request
+    response = conn.getresponse()
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connection.py", line 571, in getresponse
+    resp = self.send(prep, **send_kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/sessions.py", line 703, in send
+    httplib_response = super().getresponse()
+  File "/usr/lib64/python3.9/http/client.py", line 1377, in getresponse
+    r = adapter.send(request, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response.begin()
+  File "/usr/lib64/python3.9/http/client.py", line 320, in begin
+    response = self._make_request(
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    version, status, reason = self._read_status()
+  File "/usr/lib64/python3.9/http/client.py", line 281, in _read_status
+    response = conn.getresponse()
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connection.py", line 571, in getresponse
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib64/python3.9/socket.py", line 716, in readinto
+    httplib_response = super().getresponse()
+  File "/usr/lib64/python3.9/http/client.py", line 1377, in getresponse
+    return self._sock.recv_into(b)
+  File "/usr/lib64/python3.9/ssl.py", line 1277, in recv_into
+    response.begin()
+  File "/usr/lib64/python3.9/http/client.py", line 320, in begin
+    return self.read(nbytes, buffer)
+  File "/usr/lib64/python3.9/ssl.py", line 1135, in read
+    version, status, reason = self._read_status()
+  File "/usr/lib64/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib64/python3.9/socket.py", line 716, in readinto
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+    return self._sock.recv_into(b)
+  File "/usr/lib64/python3.9/ssl.py", line 1277, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib64/python3.9/ssl.py", line 1135, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1142, in <module>
+    main()
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1092, in main
+    crawl_library(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 980, in crawl_library
+    replace_chapter_images_for_config(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 771, in replace_chapter_images_for_config
+    stored_images = download_chapter_images(config, chapter_id, chapter_url, images)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 727, in download_chapter_images
+    candidate_response = request_get(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 202, in request_get
+    response = requests.get(url, headers=request_headers, timeout=timeout)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/home/opc/manga-crawler/.venv/lib64/python3.9/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib64/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/usr/lib64/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib64/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib64/python3.9/socket.py", line 716, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib64/python3.9/ssl.py", line 1277, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib64/python3.9/ssl.py", line 1135, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1142, in <module>
+    main()
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 1087, in main
+    crawl_single_chapter(conn, config, args.chapter_id)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 835, in crawl_single_chapter
+    replace_chapter_images_for_config(conn, config, stored_id, href, images)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 771, in replace_chapter_images_for_config
+    stored_images = download_chapter_images(config, chapter_id, chapter_url, images)
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 747, in download_chapter_images
+    raise last_error or RuntimeError(f"Could not download image: {source_url}")
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 727, in download_chapter_images
+    candidate_response = request_get(
+  File "/home/opc/manga-crawler/generic_manga_crawler.py", line 218, in request_get
+    raise last_error
+requests.exceptions.HTTPError: 502 upstream error for url: https://sv1.otruyencdn.com/uploads/20240102/74c56842e6b269d24bf8a6ed7d411bc1/chapter_1/page_1.jpg
